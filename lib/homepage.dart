@@ -1,4 +1,6 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,127 +11,166 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  TextEditingController textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          floating: true,
-          snap: false,
-          pinned: true,
-          expandedHeight: 200.0,
-          flexibleSpace: FlexibleSpaceBar(
-            title: Text('SliverAppBar'),
-            background: Image.network(
-              'https://picsum.photos/250?image=9',
-              fit: BoxFit.cover,
+      appBar: AppBar(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Hello User!",
+              style: TextStyle(fontSize: 20),
             ),
-          ),
-          actions: <Widget>[
-            Padding(
-              padding:
-                  const EdgeInsets.only(right: 20, left: 20, top: 8, bottom: 8),
-              child: NeumorphicButton(
-                // ignore: prefer_const_constructors
-                style: NeumorphicStyle(
-                  color: Colors.blue[800],
-                  depth: 0,
-                  surfaceIntensity: 0.5,
-                  shape: NeumorphicShape.flat,
-                ),
-                child: Icon(
-                  Icons.notifications,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  // do something
-                },
-              ),
+            Text(
+              "Search Documents",
+              style: TextStyle(fontSize: 15),
             ),
           ],
         ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 20.0,
-              left: 20,
-              right: 20,
+        elevation: 0,
+        toolbarHeight: 100,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {},
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Container(
-                color: Colors.deepPurple[400],
-                height: 150,
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.blue,
+          child: Stack(children: [
+            Container(
+              height: 150,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50), color: Colors.white),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(
+                    Icons.linear_scale_sharp,
+                    size: 30,
+                    color: Colors.blueGrey,
+                  )
+                ],
               ),
             ),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 20.0,
-              left: 20,
-              right: 20,
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+            Padding(
+              padding: const EdgeInsets.only(top: 50.0),
               child: Container(
-                color: Colors.deepPurple[400],
-                height: 150,
+                color: Colors.white,
+                width: double.infinity,
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    AnimSearchBar(
+                        width: 350,
+                        textController: textController,
+                        onSuffixTap: () {},
+                        onSubmitted: (String) {},
+                        ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Card(
+                          color: Colors.blue[600],
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                          ),
+                          elevation: 20,
+                        ),
+                        Card(
+                          color: Colors.blue[600],
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                          ),
+                          elevation: 20,
+                        ),
+                        Card(
+                          color: Colors.blue[600],
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                          ),
+                          elevation: 20,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Card(
+                          color: Colors.blue[600],
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                          ),
+                          elevation: 20,
+                        ),
+                        Card(
+                          color: Colors.blue[600],
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                          ),
+                          elevation: 20,
+                        ),
+                        Card(
+                          color: Colors.blue[600],
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                          ),
+                          elevation: 20,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Card(
+                          color: Colors.blue[600],
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                          ),
+                          elevation: 20,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ),
+            )
+          ]),
         ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 20.0,
-              left: 20,
-              right: 20,
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Container(
-                color: Colors.deepPurple[400],
-                height: 150,
-              ),
-            ),
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.yellow,
+        color: Colors.blue,
+        items: <Widget>[
+          Icon(
+            Icons.home,
+            size: 25,
+            color: Colors.white,
           ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 20.0,
-              left: 20,
-              right: 20,
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Container(
-                color: Colors.deepPurple[400],
-                height: 150,
-              ),
-            ),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 20.0,
-              left: 20,
-              right: 20,
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Container(
-                color: Colors.deepPurple[400],
-                height: 150,
-              ),
-            ),
-          ),
-        ),
-      ],
-    ));
+          Icon(
+            Icons.map,
+            size: 25,
+            color: Colors.white,
+          )
+        ],
+        onTap: (index) {},
+      ),
+    );
   }
 }
