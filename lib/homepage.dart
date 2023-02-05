@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'documentsList.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -72,7 +73,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 30.0),
+              padding: const EdgeInsets.only(top: 40.0),
               child: Container(
                 color: Colors.white,
                 width: double.infinity,
@@ -143,26 +144,35 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             color: Colors.white,
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.fileInvoice,
-                                      color: Colors.blueAccent,
-                                      size: 30,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text("Certificates",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ]),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DocumentsList(
+                                            cName: "Certificates")));
+                              },
+                              child: Container(
+                                height: 100,
+                                width: 100,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.fileInvoice,
+                                        color: Colors.blueAccent,
+                                        size: 30,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text("Certificates",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ]),
+                              ),
                             ),
                             elevation: 20,
                           ),
@@ -174,26 +184,35 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             color: Colors.white,
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.userTie,
-                                      color: Colors.blueAccent,
-                                      size: 30,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text("Magisterial",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ]),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DocumentsList(
+                                            cName: "Magisterial")));
+                              },
+                              child: Container(
+                                height: 100,
+                                width: 100,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.userTie,
+                                        color: Colors.blueAccent,
+                                        size: 30,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text("Magisterial",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ]),
+                              ),
                             ),
                             elevation: 20,
                           ),
@@ -205,127 +224,35 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             color: Colors.white,
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.folderOpen,
-                                      color: Colors.blueAccent,
-                                      size: 30,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text("Miscellaneous",
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ]),
-                            ),
-                            elevation: 20,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DocumentsList(
+                                            cName: "Miscellaneous")));
+                              },
+                              child: Container(
+                                height: 100,
+                                width: 100,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.folderOpen,
+                                        color: Colors.blueAccent,
+                                        size: 30,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text("Miscellaneous",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ]),
                               ),
-                            ),
-                            color: Colors.white,
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.coins,
-                                      color: Colors.blueAccent,
-                                      size: 30,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text("Revenue",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ]),
-                            ),
-                            elevation: 20,
-                          ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                            color: Colors.white,
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.bookOpenReader,
-                                      color: Colors.blueAccent,
-                                      size: 30,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text("RTI",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ]),
-                            ),
-                            elevation: 20,
-                          ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                            color: Colors.white,
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.peopleGroup,
-                                      color: Colors.blueAccent,
-                                      size: 30,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text("Social Security",
-                                        style: TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ]),
                             ),
                             elevation: 20,
                           ),
@@ -345,26 +272,163 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             color: Colors.white,
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.parachuteBox,
-                                      color: Colors.blueAccent,
-                                      size: 30,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text("Supply",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ]),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            DocumentsList(cName: "cName")));
+                              },
+                              child: Container(
+                                height: 100,
+                                width: 100,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.coins,
+                                        color: Colors.blueAccent,
+                                        size: 30,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text("Revenue",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ]),
+                              ),
+                            ),
+                            elevation: 20,
+                          ),
+                          Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                              side: BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                            color: Colors.white,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            DocumentsList(cName: "RTI")));
+                              },
+                              child: Container(
+                                height: 100,
+                                width: 100,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.bookOpenReader,
+                                        color: Colors.blueAccent,
+                                        size: 30,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text("RTI",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ]),
+                              ),
+                            ),
+                            elevation: 20,
+                          ),
+                          Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                              side: BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                            color: Colors.white,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DocumentsList(
+                                            cName: "SocialSecurity")));
+                              },
+                              child: Container(
+                                height: 100,
+                                width: 100,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.peopleGroup,
+                                        color: Colors.blueAccent,
+                                        size: 30,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text("Social Security",
+                                          style: TextStyle(
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ]),
+                              ),
+                            ),
+                            elevation: 20,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                              side: BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                            color: Colors.white,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            DocumentsList(cName: "Supply")));
+                              },
+                              child: Container(
+                                height: 100,
+                                width: 100,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.parachuteBox,
+                                        color: Colors.blueAccent,
+                                        size: 30,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text("Supply",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ]),
+                              ),
                             ),
                             elevation: 20,
                           ),
