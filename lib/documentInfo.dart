@@ -71,7 +71,7 @@ class _DocumentInfoState extends State<DocumentInfo> {
                     Padding(
                       padding: const EdgeInsets.only(top: 40.0),
                       child: Container(
-                        height: 500,
+                        height: 600,
                         color: Colors.white,
                         width: double.infinity,
                         padding: const EdgeInsets.all(8.0),
