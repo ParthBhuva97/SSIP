@@ -136,22 +136,22 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DocumentsList(
+                                          cName: "Certificates")));
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            color: Colors.white,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DocumentsList(
-                                            cName: "Certificates")));
-                              },
+                              color: Colors.white,
                               child: Container(
                                 height: 100,
                                 width: 100,
@@ -173,25 +173,25 @@ class _HomePageState extends State<HomePage> {
                                           )),
                                     ]),
                               ),
+                              elevation: 20,
                             ),
-                            elevation: 20,
                           ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DocumentsList(cName: "Magisterial")));
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            color: Colors.white,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DocumentsList(
-                                            cName: "Magisterial")));
-                              },
+                              color: Colors.white,
                               child: Container(
                                 height: 100,
                                 width: 100,
@@ -213,25 +213,25 @@ class _HomePageState extends State<HomePage> {
                                           )),
                                     ]),
                               ),
+                              elevation: 20,
                             ),
-                            elevation: 20,
                           ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DocumentsList(
+                                          cName: "Miscellaneous")));
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            color: Colors.white,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DocumentsList(
-                                            cName: "Miscellaneous")));
-                              },
+                              color: Colors.white,
                               child: Container(
                                 height: 100,
                                 width: 100,
@@ -253,8 +253,8 @@ class _HomePageState extends State<HomePage> {
                                           )),
                                     ]),
                               ),
+                              elevation: 20,
                             ),
-                            elevation: 20,
                           ),
                         ],
                       ),
@@ -264,22 +264,22 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DocumentsList(cName: "Revenue")));
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            color: Colors.white,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            DocumentsList(cName: "cName")));
-                              },
+                              color: Colors.white,
                               child: Container(
                                 height: 100,
                                 width: 100,
@@ -301,25 +301,25 @@ class _HomePageState extends State<HomePage> {
                                           )),
                                     ]),
                               ),
+                              elevation: 20,
                             ),
-                            elevation: 20,
                           ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DocumentsList(cName: "RTI")));
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            color: Colors.white,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            DocumentsList(cName: "RTI")));
-                              },
+                              color: Colors.white,
                               child: Container(
                                 height: 100,
                                 width: 100,
@@ -341,25 +341,25 @@ class _HomePageState extends State<HomePage> {
                                           )),
                                     ]),
                               ),
+                              elevation: 20,
                             ),
-                            elevation: 20,
                           ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DocumentsList(
+                                          cName: "SocialSecurity")));
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            color: Colors.white,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DocumentsList(
-                                            cName: "SocialSecurity")));
-                              },
+                              color: Colors.white,
                               child: Container(
                                 height: 100,
                                 width: 100,
@@ -381,8 +381,8 @@ class _HomePageState extends State<HomePage> {
                                           )),
                                     ]),
                               ),
+                              elevation: 20,
                             ),
-                            elevation: 20,
                           ),
                         ],
                       ),
@@ -392,22 +392,22 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(
-                                color: Colors.black,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DocumentsList(cName: "Supply")));
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            color: Colors.white,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            DocumentsList(cName: "Supply")));
-                              },
+                              color: Colors.white,
                               child: Container(
                                 height: 100,
                                 width: 100,
@@ -429,8 +429,8 @@ class _HomePageState extends State<HomePage> {
                                           )),
                                     ]),
                               ),
+                              elevation: 20,
                             ),
-                            elevation: 20,
                           ),
                         ],
                       ),
