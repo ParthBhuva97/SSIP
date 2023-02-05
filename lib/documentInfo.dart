@@ -71,41 +71,20 @@ class _DocumentInfoState extends State<DocumentInfo> {
                     Padding(
                       padding: const EdgeInsets.only(top: 40.0),
                       child: Container(
-                        height: 600,
+                        height: 500,
                         color: Colors.white,
                         width: double.infinity,
                         padding: const EdgeInsets.all(8.0),
-                        child: ListView.builder(
-                            itemCount: 5,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8.0, right: 8.0, top: 5, bottom: 5),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => DocumentInfo(
-                                                docName: "$index")));
-                                  },
-                                  child: Card(
-                                    elevation: 10,
-                                    child: Container(
-                                      height: 50,
-                                      margin: EdgeInsets.all(10),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text("$index"),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            }),
+                        child: Container(
+                          width: double.infinity,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text("This Page is for List of Documents"),
+                            ],
+                          ),
+                        ),
                       ),
                     )
                   ],
@@ -114,15 +93,51 @@ class _DocumentInfoState extends State<DocumentInfo> {
             )
           : SingleChildScrollView(
               child: Container(
-                  width: double.infinity,
-                  height: 500,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text("This Page is for FlowChart"),
-                    ],
-                  )),
+                color: Colors.blue,
+                child: Stack(
+                  children: [
+                    Container(
+                      child: Container(
+                        height: 150,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.white),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.linear_scale_sharp,
+                              size: 30,
+                              color: Colors.blueGrey,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 40.0),
+                      child: Container(
+                        height: 500,
+                        color: Colors.white,
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: double.infinity,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text("This Page is for Flowchart"),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.yellow,
@@ -146,7 +161,8 @@ class _DocumentInfoState extends State<DocumentInfo> {
             currentIndex = index;
           });
           if (currentIndex == 2) {
-            var query = widget.docName.toString().replaceAll(" ", "+");
+            // var query = widget.docName.toString().replaceAll(" ", "+");
+            var query = "Hello World";
             var url =
                 Uri.parse("https://youtube.com/results?search_query=${query}");
             _launchUrl(url);
