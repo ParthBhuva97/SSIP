@@ -140,9 +140,27 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DocumentsList(
-                                          cName: "Certificates")));
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        DocumentsList(
+                                      cName: "Certificates",
+                                    ),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      const begin = Offset(0.0, 1.0);
+                                      const end = Offset.zero;
+                                      final tween =
+                                          Tween(begin: begin, end: end);
+                                      final offsetAnimation =
+                                          animation.drive(tween);
+
+                                      return SlideTransition(
+                                        position: offsetAnimation,
+                                        child: child,
+                                      );
+                                    },
+                                  ));
                             },
                             child: Card(
                               shape: RoundedRectangleBorder(
@@ -180,9 +198,27 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          DocumentsList(cName: "Magisterial")));
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        DocumentsList(
+                                      cName: "Magisterial",
+                                    ),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      const begin = Offset(0.0, 1.0);
+                                      const end = Offset.zero;
+                                      final tween =
+                                          Tween(begin: begin, end: end);
+                                      final offsetAnimation =
+                                          animation.drive(tween);
+
+                                      return SlideTransition(
+                                        position: offsetAnimation,
+                                        child: child,
+                                      );
+                                    },
+                                  ));
                             },
                             child: Card(
                               shape: RoundedRectangleBorder(
@@ -220,9 +256,27 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DocumentsList(
-                                          cName: "Miscellaneous")));
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        DocumentsList(
+                                      cName: "Miscellaneous",
+                                    ),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      const begin = Offset(0.0, 1.0);
+                                      const end = Offset.zero;
+                                      final tween =
+                                          Tween(begin: begin, end: end);
+                                      final offsetAnimation =
+                                          animation.drive(tween);
+
+                                      return SlideTransition(
+                                        position: offsetAnimation,
+                                        child: child,
+                                      );
+                                    },
+                                  ));
                             },
                             child: Card(
                               shape: RoundedRectangleBorder(
@@ -268,9 +322,27 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          DocumentsList(cName: "Revenue")));
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        DocumentsList(
+                                      cName: "Revenue",
+                                    ),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      const begin = Offset(0.0, 1.0);
+                                      const end = Offset.zero;
+                                      final tween =
+                                          Tween(begin: begin, end: end);
+                                      final offsetAnimation =
+                                          animation.drive(tween);
+
+                                      return SlideTransition(
+                                        position: offsetAnimation,
+                                        child: child,
+                                      );
+                                    },
+                                  ));
                             },
                             child: Card(
                               shape: RoundedRectangleBorder(
@@ -308,9 +380,27 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          DocumentsList(cName: "RTI")));
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        DocumentsList(
+                                      cName: "RTI",
+                                    ),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      const begin = Offset(0.0, 1.0);
+                                      const end = Offset.zero;
+                                      final tween =
+                                          Tween(begin: begin, end: end);
+                                      final offsetAnimation =
+                                          animation.drive(tween);
+
+                                      return SlideTransition(
+                                        position: offsetAnimation,
+                                        child: child,
+                                      );
+                                    },
+                                  ));
                             },
                             child: Card(
                               shape: RoundedRectangleBorder(
@@ -348,9 +438,27 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DocumentsList(
-                                          cName: "SocialSecurity")));
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        DocumentsList(
+                                      cName: "Social Security",
+                                    ),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      const begin = Offset(0.0, 1.0);
+                                      const end = Offset.zero;
+                                      final tween =
+                                          Tween(begin: begin, end: end);
+                                      final offsetAnimation =
+                                          animation.drive(tween);
+
+                                      return SlideTransition(
+                                        position: offsetAnimation,
+                                        child: child,
+                                      );
+                                    },
+                                  ));
                             },
                             child: Card(
                               shape: RoundedRectangleBorder(
@@ -396,9 +504,27 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          DocumentsList(cName: "Supply")));
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        DocumentsList(
+                                      cName: "Supply",
+                                    ),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      const begin = Offset(0.0, 1.0);
+                                      const end = Offset.zero;
+                                      final tween =
+                                          Tween(begin: begin, end: end);
+                                      final offsetAnimation =
+                                          animation.drive(tween);
+
+                                      return SlideTransition(
+                                        position: offsetAnimation,
+                                        child: child,
+                                      );
+                                    },
+                                  ));
                             },
                             child: Card(
                               shape: RoundedRectangleBorder(
