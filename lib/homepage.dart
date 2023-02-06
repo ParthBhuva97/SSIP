@@ -4,6 +4,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'documentsList.dart';
+import 'searchDocuments.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -80,40 +81,64 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      width: double.infinity,
-                      height: 55,
-                      padding: EdgeInsets.all(5.0),
-                      margin: const EdgeInsets.only(left: 20.0, right: 20.0),
-                      decoration: BoxDecoration(
-                        color: Colors.blue[100],
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(2, 3), // changes position of shadow
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      SearchDocuments(),
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
+                                const begin = Offset(0.0, 1.0);
+                                const end = Offset.zero;
+                                final tween = Tween(begin: begin, end: end);
+                                final offsetAnimation = animation.drive(tween);
+
+                                return SlideTransition(
+                                  position: offsetAnimation,
+                                  child: child,
+                                );
+                              },
+                            ));
+                      },
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        width: double.infinity,
+                        height: 55,
+                        padding: EdgeInsets.all(5.0),
+                        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                        decoration: BoxDecoration(
+                          color: Colors.blue[100],
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(2, 3), // changes position of shadow
+                            ),
+                          ],
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(50.0),
                           ),
-                        ],
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(50.0),
                         ),
+                        child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.search,
+                                  size: 30.0,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text("Search")
+                              ],
+                            )),
                       ),
-                      child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.search,
-                                size: 30.0,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text("Search")
-                            ],
-                          )),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 25.0),
