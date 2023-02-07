@@ -1,7 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:jsk_app/zoomedFlowDiagram.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 
 class DocumentInfo extends StatefulWidget {
   String docName;
@@ -129,7 +132,52 @@ class _DocumentInfoState extends State<DocumentInfo> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text("This Page is for Flowchart"),
+                              Container(
+                                child: GlassmorphicFlexContainer(
+                                  borderRadius: 20,
+                                  blur: 20,
+                                  padding: EdgeInsets.all(40),
+                                  alignment: Alignment.bottomCenter,
+                                  border: 2,
+                                  linearGradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        Color(0xff151515).withOpacity(0.2),
+                                        Color(0xff151515).withOpacity(0.25),
+                                      ],
+                                      stops: [
+                                        0.1,
+                                        1,
+                                      ]),
+                                  borderGradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [
+                                      const Color(0xFFffffff).withOpacity(0.5),
+                                      Color((0xFFFFFFFF)).withOpacity(0.5),
+                                    ],
+                                  ),
+                                  child: Container(
+                                    padding: EdgeInsets.all(20.0),
+                                    alignment: Alignment.center,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  ZoomedFlow()),
+                                        );
+                                      },
+                                      child: Image.asset(
+                                        "assets/images/flow.jpeg",
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         ),

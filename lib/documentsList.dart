@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jsk_app/documentInfo.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DocumentsList extends StatefulWidget {
   String cName;
@@ -9,7 +10,15 @@ class DocumentsList extends StatefulWidget {
   State<DocumentsList> createState() => _DocumentsListState();
 }
 
+List<String> subServices = [];
+
 class _DocumentsListState extends State<DocumentsList> {
+  @override
+  void initState() {
+    super.initState();
+    getListitems(widget.cName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +81,7 @@ class _DocumentsListState extends State<DocumentsList> {
                     width: double.infinity,
                     padding: const EdgeInsets.all(8.0),
                     child: ListView.builder(
-                        itemCount: 5,
+                        itemCount: subServices.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
                             padding: const EdgeInsets.only(
@@ -88,12 +97,13 @@ class _DocumentsListState extends State<DocumentsList> {
                               child: Card(
                                 elevation: 10,
                                 child: Container(
-                                  height: 50,
+                                  //height: 50,
                                   margin: EdgeInsets.all(10),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text("$index"),
+                                      Text(subServices[index],
+                                      style: TextStyle(fontSize: 22.0),),
                                     ],
                                   ),
                                 ),
@@ -107,5 +117,17 @@ class _DocumentsListState extends State<DocumentsList> {
             ),
           ),
         ));
+  }
+  Future<void> getListitems(String value) async {
+    // Get docs from collection reference
+    QuerySnapshot querySnapshot =
+        await FirebaseFirestore.instance.collection(value).get();
+    subServices.clear();
+    querySnapshot.docs
+        .map((doc) => setState(() {
+              subServices.add(doc.id.toString());
+            }))
+        .toList();
+    print("Get List Items Called.");
   }
 }
