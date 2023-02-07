@@ -43,6 +43,7 @@ dependencies:
   glassmorphism: ^3.0.0
   pinch_zoom_release_unzoom: ^0.0.12
   shared_preferences: ^2.0.17
+  cloud_firestore: ^4.3.1
 
 dev_dependencies:
   flutter_test:
