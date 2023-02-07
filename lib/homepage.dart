@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'documentsList.dart';
 import 'searchDocuments.dart';
@@ -14,13 +15,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String? name = '';
   int currentIndex = 0;
   TextEditingController textController = TextEditingController();
   @override
   void initState() {
     // TODO: implement initState
     currentIndex = 0;
+    getName();
     super.initState();
+  }
+
+  Future<void> getName() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      name = prefs.getString('username');
+    });
   }
 
   @override
@@ -31,7 +41,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Hello User!",
+              "Hello ${name}!",
               style: TextStyle(fontSize: 20),
             ),
             Text(
@@ -40,6 +50,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+        automaticallyImplyLeading: false,
         elevation: 0,
         toolbarHeight: 100,
         actions: [
