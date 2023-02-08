@@ -107,6 +107,7 @@ class _SearchDocumentsState extends State<SearchDocuments> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => DocumentInfo(
+                                          cName: "RTI",
                                           docName: subServices[index])));
                             },
                             child: Card(

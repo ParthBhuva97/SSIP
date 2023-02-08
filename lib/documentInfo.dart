@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6,15 +7,24 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 
+List<String> documentsList = [];
+
 class DocumentInfo extends StatefulWidget {
+  String cName;
   String docName;
-  DocumentInfo({super.key, required this.docName});
+  DocumentInfo({super.key, required this.cName, required this.docName});
 
   @override
   State<DocumentInfo> createState() => _DocumentInfoState();
 }
 
 class _DocumentInfoState extends State<DocumentInfo> {
+  @override
+  void initState() {
+    super.initState();
+    getDocuments(widget.cName, widget.docName);
+  }
+
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -80,12 +90,19 @@ class _DocumentInfoState extends State<DocumentInfo> {
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
                           width: double.infinity,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text("This Page is for List of Documents"),
-                            ],
+                          child: ListView.builder(
+                            itemCount: documentsList.length,
+                            itemBuilder: (context, position) {
+                              return Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: Text(
+                                    documentsList[position],
+                                    style: TextStyle(fontSize: 22.0),
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ),
@@ -218,6 +235,17 @@ class _DocumentInfoState extends State<DocumentInfo> {
         },
       ),
     );
+  }
+
+  Future<void> getDocuments(String cName, String docData) async {
+    DocumentSnapshot snapshot =
+        await FirebaseFirestore.instance.collection(cName).doc(docData).get();
+    var snapData = snapshot.data().toString();
+
+    final data = snapData.substring(12, snapData.length - 1);
+    setState(() {
+      documentsList = data.split(";");
+    });
   }
 }
 

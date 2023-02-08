@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'documentsList.dart';
-import 'searchDocuments.dart';
+import 'onBoardingScreen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                             PageRouteBuilder(
                               pageBuilder:
                                   (context, animation, secondaryAnimation) =>
-                                      SearchDocuments(),
+                                      OnBoardingScreen(),
                               transitionsBuilder: (context, animation,
                                   secondaryAnimation, child) {
                                 const begin = Offset(0.0, 1.0);

@@ -91,8 +91,9 @@ class _DocumentsListState extends State<DocumentsList> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            DocumentInfo(docName: "$index")));
+                                        builder: (context) => DocumentInfo(
+                                            cName: widget.cName,
+                                            docName: subServices[index])));
                               },
                               child: Card(
                                 elevation: 10,
@@ -102,8 +103,10 @@ class _DocumentsListState extends State<DocumentsList> {
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(subServices[index],
-                                      style: TextStyle(fontSize: 22.0),),
+                                      Text(
+                                        subServices[index],
+                                        style: TextStyle(fontSize: 22.0),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -118,6 +121,7 @@ class _DocumentsListState extends State<DocumentsList> {
           ),
         ));
   }
+
   Future<void> getListitems(String value) async {
     // Get docs from collection reference
     QuerySnapshot querySnapshot =
@@ -130,6 +134,4 @@ class _DocumentsListState extends State<DocumentsList> {
         .toList();
     print("Get List Items Called.");
   }
-  
 }
-
