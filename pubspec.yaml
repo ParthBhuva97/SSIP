@@ -40,6 +40,8 @@ dependencies:
   url_launcher: ^6.1.8
   font_awesome_flutter: ^10.3.0
   firebase_core: ^2.4.1
+  glassmorphism: ^3.0.0
+  pinch_zoom_release_unzoom: ^0.0.12
   shared_preferences: ^2.0.17
   pinch_zoom_release_unzoom: ^0.0.12
   glassmorphism: ^3.0.0
@@ -69,7 +71,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/images/flow.jpeg
+    - assets/images/
+
+  #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
